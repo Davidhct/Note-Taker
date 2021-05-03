@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Note Taker</title>
+  </head>
+  <body>
+    <header>
+      <h1>Note Taker</h1>
+      <h3>New Note</h3>
+      <input type="text" id="title" placeholder="Title" />
+      <textarea
+        name=""
+        id="note"
+        cols="30"
+        rows="10"
+        placeholder="Note"
+      ></textarea>
+      <div id="div-btn">
+        <button type="submit" id="add-btn">Add Note</button>
+      </div>
+    </header>
+    <section id="board">
+      <!--<article id="modal">
+        <span id="inner-title">title</span>
+        <p id="inner-para">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius,
+          beatae, hic obcaecati cum, harum corrupti id voluptatum ad
+          perspiciatis suscipit dolores. Repudiandae ipsa magnam expedita
+          excepturi laudantium labore, iure perspiciatis qui unde recusandae
+          laborum, earum quisquam consequuntur distinctio nobis voluptatibus
+          dicta ut doloremque? Eum dolorem, recusandae sed vel minima ullam
+          porro quis. Rem, distinctio officia minima commodi consequuntur
+          quisquam dolor explicabo voluptas, nam iure nulla, quas autem ducimus.
+          Molestiae beatae saepe error nesciunt! Ut dignissimos voluptates
+          cupiditate vero maxime, saepe nisi tenetur debitis sequi accusamus
+          molestiae, neque blanditiis eveniet explicabo ipsa. At, perspiciatis
+        </p>
+        <div id="inner-div-btn">
+          <button id="detail-btn" type="submit">View Detail</button>
+          <button id="delete-btn" type="submit">X</button>
+          <button id="edit-btn" type="submit">Edit</button>
+        </div>
+      </article>
+      <article>
+        <span id="inner-title">title</span>
+        <p id="inner-para">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius,
+          beatae, hic obcaecati cum, harum corrupti id voluptatum ad
+          perspiciatis suscipit dolores. Repudiandae ipsa magnam expedita
+          excepturi laudantium labore, iure perspiciatis qui unde recusandae
+          laborum, earum quisquam consequuntur distinctio nobis voluptatibus
+          dicta ut doloremque? Eum dolorem, recusandae sed vel minima ullam
+          porro quis. Rem, distinctio officia minima commodi consequuntur
+          quisquam dolor explicabo voluptas, nam iure nulla, quas autem ducimus.
+          Molestiae beatae saepe error nesciunt! Ut dignissimos voluptates
+          cupiditate vero maxime, saepe nisi tenetur debitis sequi accusamus
+          molestiae, neque blanditiis eveniet explicabo ipsa. At, perspiciatis
+        </p>
+        <div id="inner-div-btn">
+          <button id="detail-btn" type="submit">View Detail</button>
+          <button id="delete-btn" type="submit">X</button>
+          <button id="edit-btn" type="submit">Edit</button>
+        </div>
+      </article>
+      <article>
+        <span id="inner-title">title</span>
+        <p id="inner-para">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius,
+          beatae, hic obcaecati cum, harum corrupti id voluptatum ad
+          perspiciatis suscipit dolores. Repudiandae ipsa magnam expedita
+          excepturi laudantium labore, iure perspiciatis qui unde recusandae
+          laborum, earum quisquam consequuntur distinctio nobis voluptatibus
+          dicta ut doloremque? Eum dolorem, recusandae sed vel minima ullam
+          porro quis. Rem, distinctio officia minima commodi consequuntur
+          quisquam dolor explicabo voluptas, nam iure nulla, quas autem ducimus.
+          Molestiae beatae saepe error nesciunt! Ut dignissimos voluptates
+          cupiditate vero maxime, saepe nisi tenetur debitis sequi accusamus
+          molestiae, neque blanditiis eveniet explicabo ipsa. At, perspiciatis
+        </p>
+        <div id="inner-div-btn">
+          <button id="detail-btn" type="submit">View Detail</button>
+          <button id="delete-btn" type="submit">X</button>
+          <button id="edit-btn" type="submit">Edit</button>
+        </div>
+      </article>
+       <article>
+        <span>title</span>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius,
+          beatae, hic obcaecati cum, harum corrupti id voluptatum ad
+          perspiciatis suscipit dolores. Repudiandae ipsa magnam expedita
+          excepturi laudantium labore, iure perspiciatis qui unde recusandae
+          laborum, earum quisquam consequuntur distinctio nobis voluptatibus
+          dicta ut doloremque? Eum dolorem, recusandae sed vel minima ullam
+          porro quis. Rem, distinctio officia minima commodi consequuntur
+          quisquam dolor explicabo voluptas, nam iure nulla, quas autem ducimus.
+          Molestiae beatae saepe error nesciunt! Ut dignissimos voluptates
+          cupiditate vero maxime, saepe nisi tenetur debitis sequi accusamus
+          molestiae, neque blanditiis eveniet explicabo ipsa. At, perspiciatis
+        </p>
+        <button type="submit">View Detail</button>
+        <button type="submit">X</button>
+        <button type="submit">Edit</button>
+      </article>
+      <article>
+        <span>title</span>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius,
+          beatae, hic obcaecati cum, harum corrupti id voluptatum ad
+          perspiciatis suscipit dolores. Repudiandae ipsa magnam expedita
+          excepturi laudantium labore, iure perspiciatis qui unde recusandae
+          laborum, earum quisquam consequuntur distinctio nobis voluptatibus
+          dicta ut doloremque? Eum dolorem, recusandae sed vel minima ullam
+          porro quis. Rem, distinctio officia minima commodi consequuntur
+          quisquam dolor explicabo voluptas, nam iure nulla, quas autem ducimus.
+          Molestiae beatae saepe error nesciunt! Ut dignissimos voluptates
+          cupiditate vero maxime, saepe nisi tenetur debitis sequi accusamus
+          molestiae, neque blanditiis eveniet explicabo ipsa. At, perspiciatis
+        </p>
+        <button type="submit">View Detail</button>
+        <button type="submit">X</button>
+        <button type="submit">Edit</button>
+      </article>
+      <article>
+        <span>title</span>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius,
+          beatae, hic obcaecati cum, harum corrupti id voluptatum ad
+          perspiciatis suscipit dolores. Repudiandae ipsa magnam expedita
+          excepturi laudantium labore, iure perspiciatis qui unde recusandae
+          laborum, earum quisquam consequuntur distinctio nobis voluptatibus
+          dicta ut doloremque? Eum dolorem, recusandae sed vel minima ullam
+          porro quis. Rem, distinctio officia minima commodi consequuntur
+          quisquam dolor explicabo voluptas, nam iure nulla, quas autem ducimus.
+          Molestiae beatae saepe error nesciunt! Ut dignissimos voluptates
+          cupiditate vero maxime, saepe nisi tenetur debitis sequi accusamus
+          molestiae, neque blanditiis eveniet explicabo ipsa. At, perspiciatis
+        </p>
+        <button type="submit">View Detail</button>
+        <button type="submit">X</button>
+        <button type="submit">Edit</button>
+      </article> -->
+    </section>
+    <script src="./index.js"></script>
+  </body>
+</html>
