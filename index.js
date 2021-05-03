@@ -89,7 +89,7 @@ class Note {
     let modal = event.target.parentNode.parentNode.parentNode;
     let modalDetail = event.target.parentNode.parentNode;
     console.log(modalDetail);
-    console.log(modalDetail.childNode);
+    console.log(modalDetail);
 
     modal.classList.toggle("modal");
     modalDetail.classList.toggle("display");
