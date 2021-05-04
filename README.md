@@ -2,7 +2,7 @@
 
 Live link to try the project: https://davidhct.github.io/Note-Taker/
 
-### Summary auto save on the local storage 
+### Summary auto save on the local storage
 
 Note-Taker application is a single page application (SPA) that allows you to write, edit, delete notes and.<br>
 
@@ -20,5 +20,5 @@ Note-Taker application is a single page application (SPA) that allows you to wri
 - To delete a note.
 - When the user is in the modal the note can be edited. <br><br>
 
-<kbd><img src="/demo image/img_1.png" width="630" height="350"></kbd>
- 
+<kbd><img src="/demo images/img_1.png" width="630" height="350"></kbd>
+<kbd><img src="/demo images/img_2.png" width="630" height="350"></kbd>
