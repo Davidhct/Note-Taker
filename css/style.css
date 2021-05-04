@@ -157,19 +157,25 @@ h3 {
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 45vw;
+  width: 46vw !important;
 }
 
 .inner-textarea {
-  /* width: 508.5px !important; */
   overflow: auto !important;
 }
 
-@media only screen and (max-width: 398px) {
+@media only screen and (max-width: 596px) {
   #modal {
     width: 98vw;
   }
   #inner-textarea {
     width: none;
+  }
+  .display {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 94vw !important;
   }
 }

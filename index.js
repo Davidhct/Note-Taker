@@ -28,8 +28,6 @@ class Note {
   constructor(title, note) {
     this.title = title;
     this.note = note;
-    console.log(title);
-    console.log(this.title);
   }
 
   createNote() {
@@ -75,7 +73,6 @@ class Note {
     span.innerHTML = this.title;
     ta.innerHTML = this.note;
 
-    console.log(this.title);
     div.appendChild(viewBtn);
     div.appendChild(editBtn);
     div.appendChild(deleteBtn);
@@ -98,9 +95,6 @@ class Note {
   viewDetail(viewBtn, editBtn, deleteBtn, ta) {
     let modal = viewBtn.parentNode.parentNode.parentNode;
     let modalDetail = viewBtn.parentNode.parentNode;
-    console.log(modal);
-
-    console.log(modalDetail);
 
     if (viewFlag === true) {
       modal.classList.toggle("modal");
@@ -131,9 +125,7 @@ class Note {
   edit(editBtn, editIcon, imgEditting, ta) {
     findIndex(ta);
 
-    console.log(noteStorage + " " + noteIndex);
     if (ta.disabled) {
-      console.log(ta.value);
       ta.disabled = !ta.disabled;
 
       editBtn.removeChild(editIcon);
