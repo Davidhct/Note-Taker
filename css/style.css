@@ -13,7 +13,6 @@ header {
   flex-direction: column;
   justify-content: center;
   width: 99vw;
-  border: 2px solid red;
   padding-top: 2rem;
   padding-bottom: 1rem;
 }
@@ -67,8 +66,8 @@ h3 {
 #add-btn {
   background: rgb(216, 214, 71);
   font-family: "Hind", sans-serif;
-  width: 7vw;
-  border-radius: 4px;
+  width: 81px;
+  border-radius: 5px;
   padding: 5px 12px;
   outline: none;
   border: none;
@@ -77,58 +76,33 @@ h3 {
 #board {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   font-family: "Hind", sans-serif;
   width: 99vw;
-  border: 2px solid blue;
-}
-
-.modal {
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 20%; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100vw; /* Full width */
-  height: 100vh; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 #modal {
+  display: flex;
+  flex-direction: column;
   height: 40vh;
-  border: 1px solid #333333;
+  width: 296px;
   padding: 10.8px;
-}
-
-.display {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 90vw;
-}
-
-.modal-para {
-  width: 80vw;
-  overflow: none;
+  border: 1px solid rgb(128, 128, 128);
 }
 
 #inner-title {
   font-size: 27px;
 }
 
-#inner-para {
-  border: 1px solid #333333;
-  width: 367.5px;
+#inner-textarea {
   height: 22vh;
   overflow: hidden;
+  font-family: "Hind", sans-serif;
+  padding: 1px 4px;
 }
 
 #inner-div-btn {
   display: flex;
-  border: 1px solid #c21515;
   justify-content: center;
   padding: 1rem;
 }
@@ -140,6 +114,11 @@ h3 {
   background: rgb(92, 131, 207);
   border-radius: 5px;
   margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.detail-btn {
+  background: rgb(207, 92, 92) !important;
 }
 
 #delete-btn {
@@ -148,27 +127,49 @@ h3 {
   border: none;
   outline: none;
   margin-right: 0.5rem;
+  cursor: pointer;
 }
 
-#edit-btn {
+.edit-btn {
   background: none;
   padding: 0.3rem;
   border: none;
   outline: none;
   margin-right: 0.5rem;
-}
-
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
   cursor: pointer;
+}
+/* for the modal */
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 20%; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100vw; /* Full width */
+  height: 100vh; /* Full height */
+
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.display {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 45vw;
+}
+
+.inner-textarea {
+  /* width: 508.5px !important; */
+  overflow: auto !important;
+}
+
+@media only screen and (max-width: 398px) {
+  #modal {
+    width: 98vw;
+  }
+  #inner-textarea {
+    width: none;
+  }
 }

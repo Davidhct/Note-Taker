@@ -1,5 +1,6 @@
 let index = 0;
-
+let viewFlag = true;
+let noteIndex = 0;
 if (window.localStorage.getItem("noteStorage") == undefined) {
   let noteStorage = [];
 
@@ -36,40 +37,43 @@ class Note {
 
     let article = document.createElement("article");
     let span = document.createElement("span");
-    let p = document.createElement("p");
+    let ta = document.createElement("textarea");
     let div = document.createElement("div");
     let viewBtn = document.createElement("button");
     let editBtn = document.createElement("button");
     let deleteBtn = document.createElement("button");
 
     let editIcon = document.createElement("img");
+    let imgEditting = document.createElement("img");
     let deleteIcon = document.createElement("img");
 
     let divModal = document.createElement("div");
 
     article.id = "modal";
     span.id = "inner-title";
-    p.id = "inner-para";
+    ta.id = "inner-textarea";
     div.id = "inner-div-btn";
     viewBtn.id = "detail-btn";
-    editBtn.id = "edit-btn";
+
     deleteBtn.id = "delete-btn";
     editIcon.id = "edit-icon";
     deleteIcon.id = "delete-icon";
 
+    ta.disabled = true;
+
     editIcon.src = "./css/images/edit_icon.png";
+    imgEditting.src = "./css/images/editting_icon.png";
     deleteIcon.src = "./css/images/delete_icon.png";
     viewBtn.innerHTML = "View Detail";
 
     editBtn.appendChild(editIcon);
     deleteBtn.appendChild(deleteIcon);
 
-    viewBtn.classList.add("detail-btn");
     editBtn.classList.add("edit-btn");
     deleteBtn.classList.add("delete-btn");
 
     span.innerHTML = this.title;
-    p.innerHTML = this.note;
+    ta.innerHTML = this.note;
 
     console.log(this.title);
     div.appendChild(viewBtn);
@@ -77,27 +81,92 @@ class Note {
     div.appendChild(deleteBtn);
 
     article.appendChild(span);
-    article.appendChild(p);
+    article.appendChild(ta);
     article.appendChild(div);
     divModal.appendChild(article);
     section.appendChild(divModal);
-
-    viewBtn.addEventListener("click", this.viewDetail);
+    editBtn.style.display = "none";
+    viewBtn.addEventListener("click", () =>
+      this.viewDetail(viewBtn, editBtn, deleteBtn, ta)
+    );
+    editBtn.addEventListener("click", () =>
+      this.edit(editBtn, editIcon, imgEditting, ta)
+    );
+    deleteBtn.addEventListener("click", () => this.delete(deleteBtn, ta));
   }
 
-  viewDetail(event) {
-    let modal = event.target.parentNode.parentNode.parentNode;
-    let modalDetail = event.target.parentNode.parentNode;
+  viewDetail(viewBtn, editBtn, deleteBtn, ta) {
+    let modal = viewBtn.parentNode.parentNode.parentNode;
+    let modalDetail = viewBtn.parentNode.parentNode;
+    console.log(modal);
+
     console.log(modalDetail);
-    console.log(modalDetail);
 
-    modal.classList.toggle("modal");
-    modalDetail.classList.toggle("display");
+    if (viewFlag === true) {
+      modal.classList.toggle("modal");
+      modalDetail.classList.toggle("display");
+      ta.classList.toggle("inner-textarea");
 
-    // modalDetail[1].classList.toggle("modal-para");
-    modal.style.display = "block";
+      viewBtn.innerHTML = "Close Detail";
+      viewBtn.classList.toggle("detail-btn");
 
-    // console.log((this.parentNode.parentNode.));
+      modal.style.display = "block";
+      editBtn.style.display = "block";
+      deleteBtn.style.display = "none";
+
+      viewFlag = false;
+    } else if (!viewFlag) {
+      modal.classList.toggle("modal");
+      modalDetail.classList.toggle("display");
+      ta.classList.toggle("inner-textarea");
+      viewBtn.innerHTML = "View Detail";
+      viewBtn.classList.toggle("detail-btn");
+
+      editBtn.style.display = "none";
+      deleteBtn.style.display = "block";
+      viewFlag = true;
+    }
+  }
+
+  edit(editBtn, editIcon, imgEditting, ta) {
+    findIndex(ta);
+
+    console.log(noteStorage + " " + noteIndex);
+    if (ta.disabled) {
+      console.log(ta.value);
+      ta.disabled = !ta.disabled;
+
+      editBtn.removeChild(editIcon);
+      editBtn.appendChild(imgEditting);
+    } else {
+      ta.disabled = !ta.disabled;
+      editBtn.removeChild(imgEditting);
+      editBtn.appendChild(editIcon);
+      noteStorage[noteIndex].note = ta.value;
+      updateStorage();
+      noteIndex = 0;
+    }
+  }
+
+  delete(deleteBtn, ta) {
+    findIndex(ta);
+    deleteBtn.parentNode.parentNode.remove();
+    noteStorage.splice(noteIndex, 1);
+    updateStorage();
+    noteIndex = 0;
+    index--;
+  }
+}
+
+function updateStorage() {
+  localStorage.setItem("noteStorage", JSON.stringify(noteStorage));
+}
+
+function findIndex(ta) {
+  for (let k = 0; k < noteStorage.length; k++) {
+    if (noteStorage[k].note === ta.value) {
+      noteIndex = k;
+    }
   }
 }
 
@@ -106,7 +175,7 @@ function run() {
   let mynote = document.getElementById("note").value.trim();
 
   if (mytitle === "") {
-    mytitle = "Note".concat(index);
+    mytitle = "Note ".concat(index);
   }
   if (mynote === "") {
     alert("You did not write anything! ");
@@ -129,8 +198,4 @@ function run() {
   document.getElementById("title").value = "";
   document.getElementById("note").value = "";
   index++;
-}
-
-function updateStorage() {
-  localStorage.setItem("noteStorage", JSON.stringify(noteStorage));
 }
