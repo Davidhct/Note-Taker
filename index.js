@@ -84,7 +84,7 @@ class Note {
     section.appendChild(divModal);
     editBtn.style.display = "none";
     viewBtn.addEventListener("click", () =>
-      this.viewDetail(viewBtn, editBtn, deleteBtn, ta)
+      this.viewDetail(viewBtn, editBtn, deleteBtn, ta, imgEditting, editIcon)
     );
     editBtn.addEventListener("click", () =>
       this.edit(editBtn, editIcon, imgEditting, ta)
@@ -92,7 +92,7 @@ class Note {
     deleteBtn.addEventListener("click", () => this.delete(deleteBtn, ta));
   }
 
-  viewDetail(viewBtn, editBtn, deleteBtn, ta) {
+  viewDetail(viewBtn, editBtn, deleteBtn, ta, imgEditting, editIcon) {
     let modal = viewBtn.parentNode.parentNode.parentNode;
     let modalDetail = viewBtn.parentNode.parentNode;
 
@@ -110,6 +110,12 @@ class Note {
 
       viewFlag = false;
     } else if (!viewFlag) {
+      if (!ta.disabled) {
+        ta.disabled = !ta.disabled;
+        editBtn.removeChild(imgEditting);
+        editBtn.appendChild(editIcon);
+      }
+
       modal.classList.toggle("modal");
       modalDetail.classList.toggle("display");
       ta.classList.toggle("inner-textarea");
