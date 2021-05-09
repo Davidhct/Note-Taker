@@ -2,7 +2,7 @@
 
 Live link to try the project: https://davidhct.github.io/Note-Taker/
 
-### Summary auto save on the local storage
+### Summary
 
 Note-Taker application is a single page application (SPA) that allows you to write, edit, delete notes and.<br>
 
